@@ -26,6 +26,25 @@ public class ArrayStorage {
         return null;
     }
 
+    public void update(Resume r) {
+        int index = getIndex(r.getUuid());
+        storage[size] = r;
+        if (index == -1) {
+            size++;
+            System.out.println("Resume " + r.getUuid() + " not exist");
+        } else {
+            storage[index] = r;
+        }
+    }
+
+    private int getIndex(String uuid) {
+        for (int i = 0; i < size; i++) {
+            if (uuid.equals(storage[i].getUuid())) {
+                return i;
+            }
+        }
+        return -1;
+    }
 
     void delete(String uuid) {
         for (int i = 0; i < size; i++) {
