@@ -5,6 +5,7 @@ import storage.Storage;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.Field;
 
 /**
  * Interactive test for storage.ArrayStorage implementation
@@ -35,8 +36,7 @@ public class MainArray {
                     System.out.println(ARRAY_STORAGE.size());
                     break;
                 case "save":
-                    r = new Resume();
-                    r.uuid = uuid;
+                    r = new Resume(uuid);
                     ARRAY_STORAGE.save(r);
                     printAll();
                     break;
@@ -52,8 +52,7 @@ public class MainArray {
                     printAll();
                     break;
                 case "update":
-                    r = new Resume();
-                    r.setUuid(uuid);
+                    r = new Resume(uuid);
                     ARRAY_STORAGE.update(r);
                     printAll();
                     break;
