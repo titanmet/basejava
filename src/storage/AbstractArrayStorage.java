@@ -1,13 +1,12 @@
 package storage;
 
-import exeption.ExistStorageException;
-import exeption.NotExistStorageException;
 import exeption.StorageExeption;
 import model.Resume;
 
 import java.util.Arrays;
+import java.util.Objects;
 
-public abstract class AbstractArrayStorage implements Storage {
+public abstract class AbstractArrayStorage extends AbstractStorage {
     public static final int STORAGE_LIMIT = 10000;
     protected Resume[] storage = new Resume[STORAGE_LIMIT];
     protected int size = 0;
@@ -17,47 +16,35 @@ public abstract class AbstractArrayStorage implements Storage {
         size = 0;
     }
 
-    public void update(Resume r) {
-        int index = getIndex(r.getUuid());
-        if (index < 0) {
-           throw new NotExistStorageException(r.getUuid());
-        } else {
-            storage[index] = r;
-        }
-
+    public void doupdate(Resume r, Object index) {
+        storage[(Integer)index] = r;
     }
 
-    public void save(Resume r) {
-        int index = getIndex(r.getUuid());
-        if (index >= 0) {
-            throw new ExistStorageException(r.getUuid());
-        } else if (size == STORAGE_LIMIT) {
+    public void dosave(Resume r, Object index) {
+        if(size == STORAGE_LIMIT) {
            throw new StorageExeption("Storage overflow", r.getUuid());
         } else {
-            insertElement(r, index);
+            insertElement(r,(Integer) index);
             size++;
         }
     }
 
-    public Resume get(String uuid) {
-        int index = getIndex(uuid);
-        if (index < 0) {
-            throw new NotExistStorageException(uuid);
-        }
-        return storage[index];
+
+    public Resume doGet(Object index) {
+        return storage[(Integer) index];
+    }
+
+    @Override
+    protected boolean isExist(Object index) {
+        return (Integer) index >= 0;
     }
 
     protected abstract int getIndex(String uuid);
 
-    public void delete(String uuid) {
-        int index = getIndex(uuid);
-        if (index < 0) {
-            throw new NotExistStorageException(uuid);
-        } else {
-            fillDeletedElement(index);
+    public void dodelete(Object index) {
+            fillDeletedElement((Integer) index);
             storage[size - 1] = null;
             size--;
-        }
     }
 
     public Resume[] getAll() {
@@ -71,5 +58,7 @@ public abstract class AbstractArrayStorage implements Storage {
     protected abstract void fillDeletedElement(int index);
 
     protected abstract void insertElement(Resume r, int index);
+
+    protected  abstract Integer getSearchKey(String uuid);
 
 }
