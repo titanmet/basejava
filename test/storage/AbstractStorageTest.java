@@ -6,8 +6,11 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
 import storage.AbstractArrayStorage;
 import storage.ArrayStorage;
+import storage.SortedArrayStorage;
 import storage.Storage;
 
 import java.util.UUID;
@@ -15,7 +18,7 @@ import java.util.UUID;
 import static org.junit.Assert.*;
 
 public abstract class AbstractStorageTest {
-    private Storage storage;
+    protected Storage storage;
 
     private static final String UUID_1 = "uuid1";
     private static final String UUID_2 = "uuid2";
@@ -73,19 +76,6 @@ public abstract class AbstractStorageTest {
     @Test(expected = ExistStorageException.class)
     public void saveExist() throws Exception {
         storage.save(RESUME_1);
-    }
-
-    @Ignore(value = "Ignore")
-    @Test(expected = StorageExeption.class)
-    public void saveOverflow() throws Exception {
-        try {
-            for (int i = 4; i <= AbstractArrayStorage.STORAGE_LIMIT; i++) {
-                storage.save(new Resume());
-            }
-        } catch (StorageExeption e) {
-            Assert.fail();
-        }
-        storage.save(new Resume());
     }
 
     @Test
