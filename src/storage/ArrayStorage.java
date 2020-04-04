@@ -2,8 +2,6 @@ package storage;
 
 import model.Resume;
 
-import java.util.Arrays;
-
 /**
  * Array based storage for Resumes
  */
@@ -20,21 +18,6 @@ public class ArrayStorage extends AbstractArrayStorage {
     }
 
     @Override
-    protected void doUpdate(Resume r, Object searchKey) {
-
-    }
-
-    @Override
-    protected void doSave(Resume r, Object searchKey) {
-
-    }
-
-    @Override
-    protected void doDelete(Object searchKey) {
-
-    }
-
-    @Override
     protected int getIndex(String uuid) {
         return 0;
     }
@@ -48,6 +31,4 @@ public class ArrayStorage extends AbstractArrayStorage {
     protected void insertElement(Resume r, int index) {
         storage[size] = r;
     }
-
-
 }

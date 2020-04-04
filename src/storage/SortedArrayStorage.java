@@ -13,21 +13,6 @@ public class SortedArrayStorage extends AbstractArrayStorage {
     }
 
     @Override
-    protected void doUpdate(Resume r, Object searchKey) {
-
-    }
-
-    @Override
-    protected void doSave(Resume r, Object searchKey) {
-
-    }
-
-    @Override
-    protected void doDelete(Object searchKey) {
-
-    }
-
-    @Override
     protected int getIndex(String uuid) {
         return 0;
     }
