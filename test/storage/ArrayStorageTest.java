@@ -1,13 +1,11 @@
+import storage.ArrayStorage;
 import storage.MapResumeStorage;
 import storage.MapUuidStorage;
 
-public class ArrayStorageTest extends AbstractStorageTest{
+public class ArrayStorageTest extends AbstractArrayStorageTest{
 
-    public ArrayStorageTest(MapResumeStorage mapUuidStorage) {
-        super(new MapUuidStorage());
+    public ArrayStorageTest() {
+        super(new ArrayStorage());
     }
 
-    public ArrayStorageTest(MapUuidStorage mapUuidStorage) {
-        super(mapUuidStorage);
-    }
 }
