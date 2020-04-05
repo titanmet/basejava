@@ -5,9 +5,8 @@ import model.Resume;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 
-public abstract class AbstractArrayStorage extends AbstractStorage {
+public abstract class AbstractArrayStorage extends AbstractStorage<Integer> {
     public static final int STORAGE_LIMIT = 10000;
     protected Resume[] storage = new Resume[STORAGE_LIMIT];
     protected int size = 0;
@@ -17,13 +16,11 @@ public abstract class AbstractArrayStorage extends AbstractStorage {
         size = 0;
     }
 
-    @Override
-    public void doUpdate(Resume r, Object index) {
+    public void doUpdate(Resume r, Integer index) {
         storage[(Integer)index] = r;
     }
 
-    @Override
-    public void doSave(Resume r, Object index) {
+    public void doSave(Resume r, Integer index) {
         if(size == STORAGE_LIMIT) {
            throw new StorageExeption("Storage overflow", r.getUuid());
         } else {
@@ -32,12 +29,12 @@ public abstract class AbstractArrayStorage extends AbstractStorage {
         }
     }
 
-    public Resume doGet(Object index) {
+    public Resume doGet(Integer index) {
         return storage[(Integer) index];
     }
 
-    @Override
-    protected boolean isExist(Object index) {
+
+    protected boolean isExist(Integer index) {
         return (Integer) index >= 0;
     }
 
