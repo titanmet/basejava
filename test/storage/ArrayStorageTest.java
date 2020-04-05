@@ -1,12 +1,9 @@
 import storage.ArrayStorage;
-import storage.MapUuidStorage;
-import storage.Storage;
-
-import static org.junit.Assert.*;
+import storage.MapResumeStorage;
 
 public class ArrayStorageTest extends AbstractStorageTest{
 
-    public ArrayStorageTest(MapUuidStorage mapUuidStorage) {
+    public ArrayStorageTest(MapResumeStorage mapUuidStorage) {
         super(new ArrayStorage());
     }
 }
