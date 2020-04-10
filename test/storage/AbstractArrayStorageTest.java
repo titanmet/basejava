@@ -1,3 +1,5 @@
+package storage;
+
 import exeption.StorageException;
 import model.Resume;
 import org.junit.Assert;

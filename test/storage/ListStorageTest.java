@@ -1,4 +1,4 @@
-import storage.ListStorage;
+package storage;
 
 public class ListStorageTest extends AbstractStorageTest {
 

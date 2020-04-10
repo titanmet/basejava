@@ -1,3 +1,5 @@
+package storage;
+
 import storage.ArrayStorage;
 import storage.MapResumeStorage;
 import storage.MapUuidStorage;

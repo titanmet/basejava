@@ -1,3 +1,5 @@
+package storage;
+
 import storage.AbstractArrayStorage;
 import storage.SortedArrayStorage;
 import storage.Storage;

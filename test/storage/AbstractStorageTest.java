@@ -1,3 +1,5 @@
+package storage;
+
 import exeption.ExistStorageException;
 import exeption.NotExistStorageException;
 import model.*;
