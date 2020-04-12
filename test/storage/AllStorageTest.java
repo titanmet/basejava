@@ -15,7 +15,8 @@ import storage.SortedArrayStorage;
                 MapUuidStorageTest.class,
                 MapResumeStorageTest.class,
                 ObjectPathStorageTest.class,
-                ObjectFileStorageTest.class
+                ObjectFileStorageTest.class,
+                XmlPathStorageTest.class
         }
 )
 public class AllStorageTest {

@@ -39,7 +39,7 @@ public class MainFile {
                         System.out.println(offset + "F: " + file.getName());
                     } else if (file.isDirectory()) {
                         System.out.println(offset + "D: " + file.getName());
-                        printDirectoryDeeply(file, offset + " ");
+                        printDirectoryDeeply(file, offset + "  ");
                     }
                 }
             }
