@@ -17,7 +17,8 @@ import storage.SortedArrayStorage;
                 ObjectPathStorageTest.class,
                 ObjectFileStorageTest.class,
                 XmlPathStorageTest.class,
-                JsonPathStorageTest.class
+                JsonPathStorageTest.class,
+                DataPathStorageTest.class
         }
 )
 public class AllStorageTest {
