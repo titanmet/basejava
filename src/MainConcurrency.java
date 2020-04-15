@@ -42,7 +42,6 @@ public class MainConcurrency {
     }
 
     private synchronized void inc() {
-        double a = Math.sin(12.);
 //        synchronized (LOCK) {
             counter++;
 //        }
