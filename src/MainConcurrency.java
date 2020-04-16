@@ -95,9 +95,15 @@ public class MainConcurrency {
         }).start();
     }
 
-    private synchronized void inc() {
+    private void inc() {
 //        synchronized (LOCK) {
+//        WRITE_LOCK.lock();
+//        try {
         atomicCounter.incrementAndGet();
+//            counter++;
+//        } finally {
+//            WRITE_LOCK.unlock();
+//        }
             counter++;
 //        }
     }
