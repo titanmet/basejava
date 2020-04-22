@@ -2,6 +2,7 @@ package storage;
 
 import exeption.ExistStorageException;
 import exeption.NotExistStorageException;
+import model.ContactType;
 import model.Resume;
 import org.junit.Before;
 import org.junit.Test;
@@ -36,6 +37,11 @@ public abstract class AbstractStorageTest {
         R2 = new Resume(UUID_2, "Name2");
         R3 = new Resume(UUID_3, "Name3");
         R4 = new Resume(UUID_4, "Name4");
+
+        R1.addContact(ContactType.MAIL, "mail1@ya.ru");
+        R1.addContact(ContactType.PHONE, "11111");
+        R4.addContact(ContactType.PHONE, "44444");
+        R4.addContact(ContactType.SKYPE, "Skype");
 
 //        R1.addContact(ContactType.MAIL, "mail1@ya.ru");
 //        R1.addContact(ContactType.PHONE, "11111");
@@ -83,6 +89,9 @@ public abstract class AbstractStorageTest {
     @Test
     public void update() throws Exception {
         Resume newResume = new Resume(UUID_1, "New Name");
+        R1.addContact(ContactType.MAIL, "mail1@google.com");
+        R1.addContact(ContactType.SKYPE, "NewSkype");
+        R1.addContact(ContactType.MOBILE, "+7 921 222-22-22");
         storage.update(newResume);
         assertTrue(newResume.equals(storage.get(UUID_1)));
     }
@@ -133,7 +142,7 @@ public abstract class AbstractStorageTest {
         assertEquals(3,list.size());
         List<Resume> sortedResumes = Arrays.asList(R1, R2, R3);
         Collections.sort(sortedResumes);
-        assertEquals(list, sortedResumes);
+        assertEquals(sortedResumes, list);
     }
 
     @Test
