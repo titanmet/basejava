@@ -1,8 +1,5 @@
 package web;
 
-
-import model.ContactType;
-import model.Resume;
 import storage.Storage;
 import util.Config;
 
@@ -12,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.Writer;
 
 public class ResumeServlet extends HttpServlet {
     private Storage storage; // = Config.get().getStorage();
